@@ -1,41 +1,49 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Button } from "../components/button";
 
-import { Button } from './Button';
-
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Example/Button',
+  title: "Components/Button",
   component: Button,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+  argTypes: { disabled: { name: "boolean" } },
 } as ComponentMeta<typeof Button>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const ButtonTemplate: ComponentStory<typeof Button> = ({ ...args }) => (
+  <Button {...args} />
+);
 
-export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
+export const Primary = ButtonTemplate.bind({});
 Primary.args = {
-  primary: true,
-  label: 'Button',
+  children: "Primary button",
+  variant: "primary",
+  disabled: false,
 };
 
-export const Secondary = Template.bind({});
+export const Secondary = ButtonTemplate.bind({});
 Secondary.args = {
-  label: 'Button',
+  children: "Secondary button",
+  variant: "secondary",
+  disabled: false,
 };
 
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'Button',
+export const Outline = ButtonTemplate.bind({});
+Outline.args = {
+  children: "Outline button",
+  variant: "outline",
+  disabled: false,
 };
 
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'Button',
+export const Link = ButtonTemplate.bind({});
+Link.args = {
+  children: "Link button",
+  variant: "link",
+  disabled: false,
 };
+
+export const IconButton = ButtonTemplate.bind({});
+IconButton.args = {
+  leftIcon: "cloud-download-outline",
+  children: "Icon with button",
+  variant: "primary",
+  disabled: false,
+};
+
