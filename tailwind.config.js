@@ -7,6 +7,13 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontSize: {
+      sm: "0.8rem",
+      base: "1rem",
+      xl: "1.3161rem",
+      "2xl": "2.2795rem",
+      "3xl": "3rem",
+    },
     colors: {
       white: "#fff",
       alabaster: "#ECE9E1",
@@ -29,6 +36,12 @@ module.exports = {
     },
     extend: {
       fontFamily: ["Poppins", ...defaultTheme.fontFamily.sans],
+      lineHeight: {
+        h1: "4rem",
+        h2: "3rem",
+        h3: "1.8rem",
+        h4: "1.4rem",
+      },
     },
   },
   plugins: [],

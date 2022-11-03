@@ -6,6 +6,25 @@
       "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
       "Helvetica Neue", sans-serif;
   }
+
+  h1 {
+    @apply text-3xl;
+    @apply leading-h1;
+  }
+  h2 {
+    @apply text-2xl;
+    @apply leading-h2;
+  }
+  h3 {
+    @apply text-xl;
+    @apply leading-h3;
+  }
+  h4 {
+    @apply leading-h4;
+  }
+  a {
+    @apply text-lilac-luster underline;
+  }
 }
 
 @tailwind utilities;
