@@ -30,6 +30,7 @@ module.exports = {
         900: "#70250A",
       },
       "cadet-grey": "#8999aa",
+      "french-lilac": "#966e99",
     },
     minWidth: {
       100: "100px",

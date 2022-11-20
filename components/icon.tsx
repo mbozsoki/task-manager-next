@@ -3,9 +3,14 @@ import { PropsWithChildren, useEffect } from "react";
 
 interface IconProps {
   onClick?: () => void;
+  size?: number;
 }
 
-export const Icon = ({ children, onClick }: PropsWithChildren<IconProps>) => {
+export const Icon = ({
+  children,
+  onClick,
+  size,
+}: PropsWithChildren<IconProps>) => {
   useEffect(() => {
     replaceIcons();
   }, [children]);
@@ -15,7 +20,9 @@ export const Icon = ({ children, onClick }: PropsWithChildren<IconProps>) => {
       <i
         data-eva={children}
         data-eva-fill="currentColor"
-        className="inline-block w-6 h-6 text-base align-middle"
+        data-eva-width={size ?? 24}
+        data-eva-height={size ?? 24}
+        className={`inline-block text-base align-middle`}
       ></i>
     </span>
   );
