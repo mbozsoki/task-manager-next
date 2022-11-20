@@ -34,8 +34,9 @@ export const TextInput = ({
         defaultValue={label}
         className={`
         w-full ${getPadding()} mb-4
-        rounded-lg bg-white border-2 border-burnt-sienna-300 placeholder-burnt-sienna-300 
-        focus:border-burnt-sienna-500 outline-none truncate
+        rounded-lg outline-none truncate
+        bg-white border-2 border-lilac-luster placeholder-lilac-luster
+        text-french-lilac focus:border-french-lilac
          disabled:border-cadet-grey disabled:pointer-events-none
         `}
         disabled={disabled}
