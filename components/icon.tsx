@@ -4,19 +4,24 @@ import { PropsWithChildren, useEffect } from "react";
 interface IconProps {
   onClick?: () => void;
   size?: number;
+  className?: string;
 }
 
 export const Icon = ({
   children,
   onClick,
   size,
+  className,
 }: PropsWithChildren<IconProps>) => {
   useEffect(() => {
     replaceIcons();
   }, [children]);
 
   return (
-    <span onClick={onClick} className={onClick && "cursor-pointer"}>
+    <span
+      onClick={onClick}
+      className={`${className} ${onClick ? "cursor-pointer" : ""}`}
+    >
       <i
         data-eva={children}
         data-eva-fill="currentColor"
