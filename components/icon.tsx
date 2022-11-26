@@ -5,6 +5,7 @@ interface IconProps {
   onClick?: () => void;
   size?: number;
   className?: string;
+  outline?: boolean;
 }
 
 export const Icon = ({
@@ -12,6 +13,7 @@ export const Icon = ({
   onClick,
   size,
   className,
+  outline = true,
 }: PropsWithChildren<IconProps>) => {
   useEffect(() => {
     replaceIcons();
@@ -23,7 +25,7 @@ export const Icon = ({
       className={`${className} ${onClick ? "cursor-pointer" : ""}`}
     >
       <i
-        data-eva={children}
+        data-eva={outline ? `${children}-outline` : children}
         data-eva-fill="currentColor"
         data-eva-width={size ?? 24}
         data-eva-height={size ?? 24}

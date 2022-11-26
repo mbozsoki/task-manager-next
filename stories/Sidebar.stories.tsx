@@ -11,16 +11,16 @@ export default {
 const SidebarTemplate: ComponentStory<typeof Sidebar> = () => (
   <Sidebar>
     {{
-      header: <SidebarLogo icon="layers-outline">Example project</SidebarLogo>,
+      header: <SidebarLogo icon="layers">Example project</SidebarLogo>,
       content: (
         <>
-          <MenuItem icon="calendar-outline" href="#/calendar">
+          <MenuItem icon="calendar" href="#/calendar">
             Calendar
           </MenuItem>
-          <MenuItem icon="people-outline" href="#/users" active={true}>
+          <MenuItem icon="people" href="#/users" active={true}>
             Users
           </MenuItem>
-          <MenuItem icon="settings-2-outline" href="#/settings">
+          <MenuItem icon="settings-2" href="#/settings">
             Settings
           </MenuItem>
         </>

@@ -47,8 +47,8 @@ export const TextInput = ({
           onClick={() => setShowPassword(!showPassword)}
           className="cursor-pointer absolute right-6 top-2"
         >
-          {!showPassword && <Icon>eye-outline</Icon>}
-          {showPassword && <Icon>eye-off-outline</Icon>}
+          {!showPassword && <Icon>eye</Icon>}
+          {showPassword && <Icon>eye-off</Icon>}
         </span>
       )}
     </div>

@@ -25,10 +25,10 @@ export const Sidebar = ({ children }: SidebarProps) => {
       </div>
       <div className="w-10 text-center text-french-lilac">
         {!opened && (
-          <Icon onClick={() => setOpened(true)}>arrowhead-left-outline</Icon>
+          <Icon onClick={() => setOpened(true)}>arrowhead-left</Icon>
         )}
         {opened && (
-          <Icon onClick={() => setOpened(false)}>arrowhead-right-outline</Icon>
+          <Icon onClick={() => setOpened(false)}>arrowhead-right</Icon>
         )}
       </div>
     </div>

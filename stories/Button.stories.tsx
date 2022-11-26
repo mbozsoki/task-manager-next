@@ -1,9 +1,9 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { Button } from "../components/button";
+import { IconButton } from "../components/icon-button";
 
 export default {
   title: "Components/Button",
-  component: Button,
   argTypes: { disabled: { name: "boolean" } },
 } as ComponentMeta<typeof Button>;
 
@@ -39,11 +39,20 @@ Link.args = {
   disabled: false,
 };
 
-export const IconButton = ButtonTemplate.bind({});
-IconButton.args = {
-  leftIcon: "cloud-download-outline",
+export const ButtonWithIcon = ButtonTemplate.bind({});
+ButtonWithIcon.args = {
+  leftIcon: "cloud-download",
   children: "Icon with button",
   variant: "primary",
   disabled: false,
+};
+
+const IconButtonTemplate: ComponentStory<typeof IconButton> = ({ ...args }) => (
+  <IconButton {...args}>bell</IconButton>
+);
+
+export const Icon = IconButtonTemplate;
+Icon.args = {
+  withBadge: false,
 };
 
