@@ -10,6 +10,7 @@ export interface ButtonProps {
   leftIcon?: string;
   rightIcon?: string;
   className?: string;
+  type?: "button" | "submit" | "reset" | undefined;
 }
 
 export const Button = ({
@@ -18,6 +19,7 @@ export const Button = ({
   leftIcon,
   rightIcon,
   className,
+  type,
   ...props
 }: PropsWithChildren<ButtonProps>) => {
   const baseStyle = `
@@ -60,7 +62,7 @@ export const Button = ({
 
   return (
     <button
-      type="button"
+      type={type ?? "button"}
       className={`${baseStyle} ${getVariantStyle()} ${className}`}
       {...props}
     >
@@ -78,3 +80,4 @@ export const Button = ({
     </button>
   );
 };
+
