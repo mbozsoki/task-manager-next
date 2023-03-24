@@ -20,7 +20,7 @@ export const Sidebar = ({ children }: SidebarProps) => {
       ${opened ? "w-[4.5rem]" : "w-60"}`}
     >
       <div className="overflow-hidden mb-6 text-xl">{header}</div>
-      <div className="flex-grow flex flex-col gap-y-1 overflow-hidden">
+      <div className="flex-grow flex flex-col gap-y-1 overflow-hidden mb-6">
         {content}
       </div>
       <div className="w-10 text-center text-french-lilac">
