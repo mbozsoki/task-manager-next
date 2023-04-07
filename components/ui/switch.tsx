@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Switch as HeadlessUiSwitch } from "@headlessui/react";
 
-export type SwitchProps = {
+type SwitchProps = {
   checked?: boolean;
 };
 
