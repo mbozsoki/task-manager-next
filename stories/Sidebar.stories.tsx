@@ -1,7 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
-import { MenuItem } from "../components/menu-item";
-import { Sidebar } from "../components/sidebar";
-import { SidebarLogo } from "../components/sidebar-logo";
+import { MenuItem } from "../components/ui/menu-item";
+import Sidebar from "../components/sidebar";
 
 export default {
   title: "Components/Sidebar",
@@ -11,18 +10,18 @@ export default {
 const SidebarTemplate: StoryFn<typeof Sidebar> = () => (
   <Sidebar>
     {{
-      header: <SidebarLogo icon="layers">Example project</SidebarLogo>,
+      header: <Sidebar.Logo icon="layers">Example project</Sidebar.Logo>,
       content: (
         <>
-          <MenuItem icon="calendar" href="#/calendar">
+          <Sidebar.MenuItem icon="calendar" href="#/calendar">
             Calendar
-          </MenuItem>
-          <MenuItem icon="people" href="#/users" active={true}>
+          </Sidebar.MenuItem>
+          <Sidebar.MenuItem icon="people" href="#/users" active={true}>
             Users
-          </MenuItem>
-          <MenuItem icon="settings-2" href="#/settings">
+          </Sidebar.MenuItem>
+          <Sidebar.MenuItem icon="settings-2" href="#/settings">
             Settings
-          </MenuItem>
+          </Sidebar.MenuItem>
         </>
       ),
     }}

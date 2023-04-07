@@ -1,8 +1,8 @@
 import { Meta, StoryFn } from "@storybook/react";
-import { Button } from "../components/button";
-import { Card } from "../components/card";
-import { Label } from "../components/label";
-import { TextInput } from "../components/textInput";
+import { Button } from "../components/ui/button";
+import { Card } from "../components/ui/card";
+import { Label } from "../components/ui/label";
+import { TextInput } from "../components/ui/textInput";
 export default {
   title: "Patterns/Form",
 } as Meta;

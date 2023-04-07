@@ -1,7 +1,7 @@
 import { PropsWithChildren, useEffect, useRef, useState } from "react";
 import { useClickOutside } from "../hooks/use-click-outside";
 import { useDebounce } from "../hooks/use-debounce";
-import { Icon } from "./icon";
+import { Icon } from "./ui/icon";
 
 type SearchProps = {
   onSearch: (searchKey: string | undefined) => void;

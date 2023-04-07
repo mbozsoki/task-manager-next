@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react";
-import { Switch } from "../components/switch";
+import { Switch } from "../components/ui/switch";
 export default {
   title: "Components/Switch",
   component: Switch,

@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
-import { Avatar } from "../components/avatar";
-import { AvatarGroup } from "../components/avatar-group";
+import { Avatar } from "../components/ui/avatar";
+import { AvatarGroup } from "../components/ui/avatar-group";
 
 export default {
   title: "Components/Avatar",
