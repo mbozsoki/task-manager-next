@@ -1,4 +1,4 @@
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { Button } from "../components/button";
 import { Card } from "../components/card";
 import { Label } from "../components/label";
@@ -7,7 +7,7 @@ export default {
   title: "Patterns/Form",
 } as Meta;
 
-export const LoginForm: Story = ({ ...args }) => (
+export const LoginForm: StoryFn = () => (
   <Card>
     <form>
       <Label>Username</Label>

@@ -8,12 +8,14 @@ type IconButtonProps = {
 export const IconButton = ({
   withBadge,
   children,
+  ...props
 }: PropsWithChildren<IconButtonProps>) => (
   <button
     className="
     relative appearance-none cursor-pointer focus:outline-none rounded-lg
     text-burnt-sienna-500 hover:text-burnt-sienna-600 active:text-burnt-sienna-700
   "
+    {...props}
   >
     {withBadge && <Badge />}
     <Icon className="p-2">{children}</Icon>

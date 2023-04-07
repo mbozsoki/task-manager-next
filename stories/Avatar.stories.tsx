@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { Avatar } from "../components/avatar";
 import { AvatarGroup } from "../components/avatar-group";
 
@@ -6,9 +6,9 @@ export default {
   title: "Components/Avatar",
   component: Avatar,
   argTypes: { disabled: { name: "boolean" } },
-} as ComponentMeta<typeof Avatar>;
+} as Meta<typeof Avatar>;
 
-const AvatarTemplate: ComponentStory<typeof Avatar> = ({ ...args }) => (
+const AvatarTemplate: StoryFn<typeof Avatar> = ({ ...args }) => (
   <Avatar {...args} />
 );
 
@@ -18,27 +18,29 @@ BasicAvatar.args = {
   alt: "Dan Abramov",
 };
 
-const AvatarGroupTemplate: ComponentStory<typeof AvatarGroup> = ({
-  ...args
-}) => {
+const AvatarGroupTemplate: StoryFn<typeof AvatarGroup> = ({ ...args }) => {
   const onClick = () => alert("Avatar clicked");
   return (
     <AvatarGroup {...args}>
       <Avatar
         src="https://avatars.githubusercontent.com/u/810438?v=4"
         onClick={onClick}
+        alt="810438"
       />
       <Avatar
         src="https://avatars.githubusercontent.com/u/6751787?v=4"
         onClick={onClick}
+        alt="6751787"
       />
       <Avatar
         src="https://avatars.githubusercontent.com/u/1500684?v=4"
         onClick={onClick}
+        alt="1500684"
       />
       <Avatar
         src="https://avatars.githubusercontent.com/u/5580297?v=4"
         onClick={onClick}
+        alt="5580297"
       />
     </AvatarGroup>
   );

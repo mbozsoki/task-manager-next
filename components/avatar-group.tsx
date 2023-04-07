@@ -5,11 +5,11 @@ type AvatarGroupProps = {
   children: JSX.Element[];
 };
 
-export const AvatarGroup = ({ limit, children }: AvatarGroupProps) => {
+export const AvatarGroup = ({ limit, children, ...props }: AvatarGroupProps) => {
   const [showAll, setShowAll] = useState(false);
 
   return (
-    <div className="flex pl-3 [&>*]:-ml-3">
+    <div className="flex pl-3 [&>*]:-ml-3" {...props}>
       {limit && !showAll ? (
         <>
           {children.slice(0, limit)}

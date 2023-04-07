@@ -1,11 +1,11 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { Card } from "../components/card";
 export default {
   title: "Components/Card",
   component: Card,
-} as ComponentMeta<typeof Card>;
+} as Meta<typeof Card>;
 
-const ButtonTemplate: ComponentStory<typeof Card> = ({ ...args }) => (
+const ButtonTemplate: StoryFn<typeof Card> = ({ ...args }) => (
   <Card {...args} />
 );
 
@@ -13,4 +13,3 @@ export const BasicCard = ButtonTemplate.bind({});
 BasicCard.args = {
   children: "Basic card",
 };
-

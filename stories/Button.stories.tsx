@@ -1,13 +1,13 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { Button } from "../components/button";
 import { IconButton } from "../components/icon-button";
 
 export default {
   title: "Components/Button",
-  argTypes: { disabled: { name: "boolean" } },
-} as ComponentMeta<typeof Button>;
+  argTypes: { disabled: { name: "disabled", type: "boolean" } },
+} as Meta<typeof Button>;
 
-const ButtonTemplate: ComponentStory<typeof Button> = ({ ...args }) => (
+const ButtonTemplate: StoryFn<typeof Button> = ({ ...args }) => (
   <Button {...args} />
 );
 
@@ -47,7 +47,7 @@ ButtonWithIcon.args = {
   disabled: false,
 };
 
-const IconButtonTemplate: ComponentStory<typeof IconButton> = ({ ...args }) => (
+const IconButtonTemplate: StoryFn<typeof IconButton> = ({ ...args }) => (
   <IconButton {...args}>bell</IconButton>
 );
 
@@ -55,4 +55,3 @@ export const Icon = IconButtonTemplate;
 Icon.args = {
   withBadge: false,
 };
-

@@ -8,9 +8,13 @@ type SidebarLogoProps = {
 export const SidebarLogo = ({
   icon,
   children,
+  ...props
 }: PropsWithChildren<SidebarLogoProps>) => {
   return (
-    <div className="flex items-center gap-x-2 whitespace-nowrap text-french-lilac">
+    <div
+      className="flex items-center gap-x-2 whitespace-nowrap text-french-lilac"
+      {...props}
+    >
       <span className="p-1">
         <Icon size={32}>{icon}</Icon>
       </span>

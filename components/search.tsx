@@ -25,13 +25,18 @@ export const Search = ({
   };
 
   useClickOutside(ref, handleClickOutside);
+  const isMounted = useRef(false);
 
   useEffect(() => {
-    onSearch(inputRef.current?.value);
+    if (isMounted.current) {
+      onSearch(inputRef.current?.value);
+    } else {
+      isMounted.current = true;
+    }
   }, [debouncedSearchValue, onSearch]);
 
   return (
-    <div ref={ref} className="flex align-center">
+    <div ref={ref} className="flex align-center" {...props}>
       <input
         className={`
             ${open ? "w-60 px-4" : "w-0 px-0"}
@@ -42,7 +47,6 @@ export const Search = ({
         `}
         onChange={() => setSearchValue(inputRef.current?.value)}
         ref={inputRef}
-        {...props}
       />
       <Icon
         className="text-burnt-sienna-500 hover:text-burnt-sienna-600 active:text-burnt-sienna-700 p-2"

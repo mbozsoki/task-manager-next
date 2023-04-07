@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { MenuItem } from "../components/menu-item";
 import { Sidebar } from "../components/sidebar";
 import { SidebarLogo } from "../components/sidebar-logo";
@@ -6,9 +6,9 @@ import { SidebarLogo } from "../components/sidebar-logo";
 export default {
   title: "Components/Sidebar",
   component: Sidebar,
-} as ComponentMeta<typeof Sidebar>;
+} as Meta<typeof Sidebar>;
 
-const SidebarTemplate: ComponentStory<typeof Sidebar> = () => (
+const SidebarTemplate: StoryFn<typeof Sidebar> = () => (
   <Sidebar>
     {{
       header: <SidebarLogo icon="layers">Example project</SidebarLogo>,

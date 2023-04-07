@@ -1,13 +1,13 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { TextInput } from "../components/textInput";
 
 export default {
   title: "Components/TextInput",
   component: TextInput,
   argTypes: {},
-} as ComponentMeta<typeof TextInput>;
+} as Meta<typeof TextInput>;
 
-const TextInputTemplate: ComponentStory<typeof TextInput> = ({ ...args }) => (
+const TextInputTemplate: StoryFn<typeof TextInput> = ({ ...args }) => (
   <TextInput {...args} />
 );
 
@@ -33,4 +33,3 @@ PasswordTextInput.args = {
   type: "password",
   disabled: false,
 };
-

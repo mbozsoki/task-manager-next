@@ -7,7 +7,7 @@ type AvatarProps = {
   alt: string;
 };
 
-export const Avatar: FC<AvatarProps> = ({ src, alt, onClick }) => {
+export const Avatar: FC<AvatarProps> = ({ src, alt, onClick, ...props }) => {
   return (
     <Image
       className={`w-12 h-12 rounded-full border-2 border-white object-cover hover:z-10 ${
@@ -18,6 +18,7 @@ export const Avatar: FC<AvatarProps> = ({ src, alt, onClick }) => {
       alt={alt}
       width={48}
       height={48}
+      {...props}
     />
   );
 };

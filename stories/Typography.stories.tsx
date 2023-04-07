@@ -1,10 +1,10 @@
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 export default {
   title: "Design system/Typography",
 } as Meta;
 
-const TypographyTemplate: Story = () => (
+const TypographyTemplate: StoryFn = () => (
   <>
     <h1>Heading 1</h1>
     <h2>Heading 2</h2>
@@ -16,4 +16,3 @@ const TypographyTemplate: Story = () => (
 );
 
 export const Typography = TypographyTemplate.bind({});
-

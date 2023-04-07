@@ -28,6 +28,7 @@ export const TextInput = ({
       className={`
       relative ${disabled ? "text-cadet-grey" : "text-burnt-sienna-500"}
       `}
+      {...props}
     >
       <input
         type={type === "password" && !showPassword ? "password" : "text"}
@@ -40,7 +41,6 @@ export const TextInput = ({
          disabled:border-cadet-grey disabled:pointer-events-none
         `}
         disabled={disabled}
-        {...props}
       />
       {type === "password" && (
         <span

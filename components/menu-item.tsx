@@ -12,6 +12,7 @@ export const MenuItem = ({
   children,
   href,
   active,
+  ...props
 }: PropsWithChildren<MenuItemProps>) => {
   return (
     <a
@@ -26,6 +27,7 @@ export const MenuItem = ({
           : "text-burnt-sienna-300"
       }
       `}
+      {...props}
     >
       <Icon>{icon}</Icon>
       <span className="font-semibold">{children}</span>

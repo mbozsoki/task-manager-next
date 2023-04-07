@@ -14,6 +14,7 @@ export const Icon = ({
   size,
   className,
   outline = true,
+  ...props
 }: PropsWithChildren<IconProps>) => {
   useEffect(() => {
     replaceIcons();
@@ -23,6 +24,7 @@ export const Icon = ({
     <span
       onClick={onClick}
       className={`${className} ${onClick ? "cursor-pointer" : ""}`}
+      {...props}
     >
       <i
         data-eva={outline ? `${children}-outline` : children}
