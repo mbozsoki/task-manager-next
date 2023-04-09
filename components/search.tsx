@@ -1,7 +1,8 @@
-import { PropsWithChildren, useEffect, useRef, useState } from "react";
+import { PropsWithChildren, useRef, useState } from "react";
 import { useClickOutside } from "../hooks/use-click-outside";
 import { useDebounce } from "../hooks/use-debounce";
 import { Icon } from "./ui/icon";
+import { useEffectAfterMounted } from "../hooks/use-effect-after-mounted";
 
 type SearchProps = {
   onSearch: (searchKey: string | undefined) => void;
@@ -25,14 +26,9 @@ export const Search = ({
   };
 
   useClickOutside(ref, handleClickOutside);
-  const isMounted = useRef(false);
 
-  useEffect(() => {
-    if (isMounted.current) {
-      onSearch(inputRef.current?.value);
-    } else {
-      isMounted.current = true;
-    }
+  useEffectAfterMounted(() => {
+    onSearch(inputRef.current?.value);
   }, [debouncedSearchValue, onSearch]);
 
   return (
