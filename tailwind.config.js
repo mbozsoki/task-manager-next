@@ -17,7 +17,7 @@ module.exports = {
     colors: {
       white: "#fff",
       alabaster: "#ECE9E1",
-      "lilac-luster": "#bda5bcff",
+      "lilac-luster": "#bda5bc",
       "burnt-sienna": {
         100: "#FDF1EC",
         200: "#FAD5C7",
@@ -31,6 +31,12 @@ module.exports = {
       },
       "cadet-grey": "#8999aa",
       "french-lilac": "#966e99",
+      magnolia: "#eee8ed",
+      carmine: "#96031A",
+      error: "#F14304",
+      info: "#3993DD",
+      warning: "#E9DF00",
+      success: "#06D6A0",
     },
     minWidth: {
       100: "100px",
@@ -47,4 +53,3 @@ module.exports = {
   },
   plugins: [],
 };
-

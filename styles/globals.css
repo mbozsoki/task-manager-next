@@ -24,7 +24,7 @@
     @apply leading-h4;
   }
   a {
-    @apply text-lilac-luster underline;
+    @apply text-burnt-sienna-400 underline;
   }
 }
 
