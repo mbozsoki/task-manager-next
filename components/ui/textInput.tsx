@@ -1,56 +1,87 @@
-import { PropsWithChildren, useState } from "react";
+import {
+  PropsWithChildren,
+  useState,
+  FC,
+  HTMLInputTypeAttribute,
+  forwardRef,
+} from "react";
 import { Icon } from "./icon";
 
-type InputType = "text" | "password";
-type InputVariant = "outline" | "fill";
-
-interface InputProps {
-  type?: InputType;
+export type TextInputProps = PropsWithChildren<{
+  type?: HTMLInputTypeAttribute;
   defaultValue?: string;
   placeholder?: string;
-  variant?: InputVariant;
   disabled?: boolean;
-}
+  showError?: boolean;
+}>;
 
-export const TextInput = ({
-  type = "text",
-  defaultValue: label,
-  disabled,
-  ...props
-}: PropsWithChildren<InputProps>) => {
-  const [showPassword, setShowPassword] = useState(false);
+const TextInput: FC<TextInputProps> = forwardRef<
+  HTMLInputElement,
+  TextInputProps
+>(
+  (
+    {
+      type = "text",
+      defaultValue: label,
+      disabled,
+      showError = false,
+      placeholder,
+      ...props
+    },
+    ref
+  ) => {
+    const [showPassword, setShowPassword] = useState(false);
 
-  const getPadding = () =>
-    `py-2 pl-6 ${type === "password" ? "pr-12" : "pr-6"}`;
+    const getInputStyle = () => `
+    w-full py-2 pl-6 ${type === "password" ? "pr-12" : "pr-6"} mb-2
+    rounded-lg outline-none truncate
+    bg-white border-2 
+    ${showError ? "border-error" : "border-magnolia focus:border-lilac-luster"} 
+    placeholder-magnolia text-lilac-luster 
+    disabled:bg-magnolia disabled:text-cadet-grey
+    disabled:pointer-events-none disabled:cursor-not-allowed
+    `;
 
-  return (
-    <div
-      className={`
-      relative ${disabled ? "text-cadet-grey" : "text-burnt-sienna-500"}
-      `}
-      {...props}
-    >
-      <input
-        type={type === "password" && !showPassword ? "password" : "text"}
-        defaultValue={label}
-        className={`
-        w-full ${getPadding()} mb-4
-        rounded-lg outline-none truncate
-        bg-white border-2 border-lilac-luster placeholder-lilac-luster
-        text-french-lilac focus:border-french-lilac
-         disabled:border-cadet-grey disabled:pointer-events-none
-        `}
-        disabled={disabled}
-      />
-      {type === "password" && (
-        <span
-          onClick={() => setShowPassword(!showPassword)}
-          className="cursor-pointer absolute right-6 top-2"
-        >
-          {!showPassword && <Icon>eye</Icon>}
-          {showPassword && <Icon>eye-off</Icon>}
-        </span>
-      )}
-    </div>
-  );
-};
+    const getInputType = () => {
+      if (type !== "password") {
+        return type;
+      } else {
+        return showPassword ? "text" : "password";
+      }
+    };
+
+    return (
+      <div
+        className={[
+          "relative",
+          disabled ? "text-cadet-grey" : "text-burnt-sienna-400",
+        ].join(" ")}
+      >
+        <input
+          ref={ref}
+          type={getInputType()}
+          defaultValue={label}
+          className={getInputStyle()}
+          disabled={disabled}
+          placeholder={placeholder}
+          aria-invalid={showError ? "true" : "false"}
+          role={showError ? "alert" : "input"}
+          {...props}
+        />
+        {type === "password" && (
+          <span
+            onClick={() => setShowPassword(!showPassword)}
+            className="cursor-pointer absolute right-6 top-2"
+          >
+            {!showPassword && <Icon>eye</Icon>}
+            {showPassword && <Icon>eye-off</Icon>}
+          </span>
+        )}
+      </div>
+    );
+  }
+);
+
+TextInput.displayName = "TextInput";
+
+export default TextInput;

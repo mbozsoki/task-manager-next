@@ -1,32 +1,38 @@
-import { useEffect, useState } from "react";
 import { Switch as HeadlessUiSwitch } from "@headlessui/react";
+import { FC, forwardRef } from "react";
 
-type SwitchProps = {
-  checked?: boolean;
+export type SwitchProps = {
+  value: boolean;
+  onChange: (newValue: boolean) => void;
+  showError?: boolean;
 };
 
-export function Switch({ checked = false, ...props }: SwitchProps) {
-  const [enabled, setEnabled] = useState(checked);
+const Switch: FC<SwitchProps> = forwardRef<HTMLButtonElement, SwitchProps>(
+  ({ value, onChange, showError, ...props }, ref) => {
+    return (
+      <HeadlessUiSwitch
+        className={[
+          "relative inline-flex h-6 w-11 items-center rounded-full",
+          value ? "bg-burnt-sienna-500" : "bg-lilac-luster",
+        ].join(" ")}
+        ref={ref}
+        checked={value}
+        onChange={() => onChange(!value)}
+        aria-invalid={showError ? "true" : "false"}
+        role={showError ? "alert" : "switch"}
+        {...props}
+      >
+        <span className="sr-only">Enable notifications</span>
+        <span
+          className={`${
+            value ? "translate-x-6" : "translate-x-1"
+          } inline-block h-4 w-4 transform rounded-full bg-white transition`}
+        />
+      </HeadlessUiSwitch>
+    );
+  }
+);
 
-  useEffect(() => {
-    setEnabled(checked);
-  }, [checked]);
+Switch.displayName = "Switch";
 
-  return (
-    <HeadlessUiSwitch
-      checked={enabled}
-      onChange={setEnabled}
-      className={`${
-        enabled ? "bg-burnt-sienna-500" : "bg-lilac-luster"
-      } relative inline-flex h-6 w-11 items-center rounded-full`}
-      {...props}
-    >
-      <span className="sr-only">Enable notifications</span>
-      <span
-        className={`${
-          enabled ? "translate-x-6" : "translate-x-1"
-        } inline-block h-4 w-4 transform rounded-full bg-white transition`}
-      />
-    </HeadlessUiSwitch>
-  );
-}
+export default Switch;

@@ -1,23 +1,21 @@
 import { Meta, StoryFn } from "@storybook/react";
-import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
-import { Label } from "../components/ui/label";
-import { TextInput } from "../components/ui/textInput";
+import { SignUpForm as SignUpFormComponent } from "../components/sign-up-form";
+import { SignInForm } from "../components/sign-in-form";
 export default {
   title: "Patterns/Form",
 } as Meta;
 
+const onSubmit = (data: any) => alert(JSON.stringify(data));
+
 export const LoginForm: StoryFn = () => (
   <Card>
-    <form>
-      <Label>Username</Label>
-      <TextInput placeholder="Username" />
-      <Label>Password</Label>
-      <TextInput type="password" placeholder="Password" />
-      <Button className="w-full" type="submit">
-        Sign in
-      </Button>
-    </form>
+    <SignInForm onSubmit={onSubmit} />
   </Card>
 );
 
+export const SignUpForm: StoryFn = () => (
+  <Card>
+    <SignUpFormComponent onSubmit={(data) => alert(JSON.stringify(data))} />
+  </Card>
+);
